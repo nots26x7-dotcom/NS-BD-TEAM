@@ -301,12 +301,13 @@
     }
     .coin-card:active { transform: scale(.985); }
     .coin-card.offline {
-      opacity: .32;
-      filter: saturate(.38) brightness(.78);
+      opacity: .55; /* একটু বাড়ালাম যাতে টেক্সট ও এলিমেন্ট একদম ভ্যানিশ না হয়ে যায় */
+      filter: saturate(.50) brightness(.90);
       pointer-events: none;
-      border-color: rgba(239,68,68,.12);
-      background: linear-gradient(180deg, rgba(28,16,22,.48), rgba(10,14,22,.62));
-      box-shadow: none;
+      border-color: rgba(239, 68, 68, 0.4);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(239, 68, 68, 0.12));
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.02);
+	  backdrop-filter: blur(4px);
     }
     .status-badge {
       position: absolute;
@@ -722,7 +723,7 @@
 
       <div class="section-title">
         <span>Coin Market</span>
-        <span class="small-note">200K+ = Admin Rate</span>
+        <span class="small-note">100K+ = Admin Rate</span>
       </div>
       <div id="market-list-display"></div>
     </section>
@@ -1037,7 +1038,7 @@
 
     function calculatePayout() {
       const qty = parseInt(document.getElementById('input-qty').value || '0', 10) || 0;
-      currentAppliedRate = qty >= 200000 ? currentAdminRate : currentCoinRate;
+      currentAppliedRate = qty >= 100000 ? currentAdminRate : currentCoinRate;
       const raw = (qty / 1000) * currentAppliedRate;
       calculatedFinalPayout = raw > 5 ? raw - 5 : 0;
       document.getElementById('display-applied-rate').innerText = `${currentAppliedRate}৳`;
