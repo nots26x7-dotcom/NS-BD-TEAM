@@ -409,32 +409,44 @@
       text-transform: uppercase;
     }
 
-    .nav-dock {
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 14px;
-      height: 70px;
-      border-radius: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      padding: 7px;
-      z-index: 40;
-    }
-    .nav-tab {
-      border: none;
-      background: transparent;
-      color: #8fa8ce;
-      border-radius: 18px;
-      font-size: 21px;
-      font-weight: 800;
-      transition: .2s ease;
-    }
-    .nav-tab.active {
-      background: linear-gradient(135deg, #2563eb, #10b981);
-      color: #fff;
-      box-shadow: 0 12px 25px rgba(37,99,235,.24);
-    }
+.nav-dock {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 65px;
+  border-radius: 26px;
+  display: grid;
+  /* 3 er jaygay 2 ta column kora hoyeche */
+  grid-template-columns: repeat(2, 1fr); 
+  padding: 7px;
+  z-index: 40;
+}
+
+.nav-tab {
+  border: none;
+  background: transparent;
+  color: #8fa8ce;
+  border-radius: 19px; /* Nav dock er sathe balance rakhar jonno radius barano hoyeche */
+  font-size: 25px;
+  font-weight: 800;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Premium Neon Glow Hover Effect */
+.nav-tab:hover:not(.active) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-tab.active {
+  background: linear-gradient(135deg, #2563eb, #10b981);
+  color: #fff;
+  /* Glow ta arektu vivid ebong spread kora hoyeche */
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4), 
+              0 10px 25px rgba(16, 185, 129, 0.3);
+}
 
     .modal-mask, .admin-mask {
       position: fixed;
